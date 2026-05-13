@@ -44,25 +44,25 @@ function array_erase(a,x){
 let queue_base = new Array(2000);
 class Queue {
 	constructor() {
-		this.s = this.t = 0;
+		this. = this.t = 0;
 	}
 	clear() {
-		this.s = this.t = 0;
+		this. = this.t = 0;
 	}
 	push(x) {
 		queue_base[this.t++] = x;
 	}
 	front() {
-		return queue_base[this.s];
+		return queue_base[this.];
 	}
 	pop() {
-		return queue_base[this.s++];
+		return queue_base[this.++];
 	}
 	empty() {
-		return this.s == this.t;
+		return this. == this.t;
 	}
 	size() {
-		return this.t - this.s;
+		return this.t - this.;
 	}
 }	
 let max = Math.max, min = Math.min, abs = Math.abs, floor = Math.floor, ceil = Math.ceil, pow = Math.pow, random = Math.random, log = Math.log, Eps = 1e-5;
@@ -70,7 +70,7 @@ let socket = io('https://ws.generals.io');
 let accounts = {
 	bot: ['asudhfiou','nimasabibc'],
 };
-let [user_id, myusername] = accounts.bot, custom_game_id = 'jsahuaehx', user_idANDkey = [user_id, 'sd09fjdZ03i0ejwi_changeme'];
+let [user_id, myusername] = ['userid', 'chenzi'], custom_game_id = 'jsahuaehx', user_idANDkey = [user_id, 'sd09fjdZ03i0ejwi_changeme'];
 let chat_room, replay_url;
 let keep_playing = true, isconnected = false, game_end = true;
 let stepdelta = [[0, 1], [0, -1], [1, 0], [-1, 0]];
@@ -194,16 +194,16 @@ function set_force_start_for_custom(game_id = custom_game_id) {
 	}, 2000);
 }
 let my_last_move = undefined;
-function attack(s, t, is50 = false) {
-	console.log("attack: ",s,t,is50);
-	my_last_move = [s,t,is50];
-	socket.emit('attack', s[0] * width + s[1], t[0] * width + t[1], is50);
+function attack(, t, is50 = false) {
+	console.log("attack: ",,t,is50);
+	my_last_move = [,t,is50];
+	socket.emit('attack', [0] * width + [1], t[0] * width + t[1], is50);
 }
 function clear_moves() {
 	socket.emit('clear_moves');
 }
-function chat(s) {
-	socket.emit('chat_message', chat_room, s);
+function chat() {
+	socket.emit('chat_message', chat_room, );
 }
 function leave_game() {
 	socket.emit('leave_game');
@@ -314,10 +314,10 @@ class Visualizer {
 		canvas.fillRect(x, y, w, h);
 		canvas.globalAlpha = 1;
 	}
-	puttext(s, x, y, color, style = "normal 12px consolas") {
+	puttext(, x, y, color, style = "normal 12px consolas") {
 		canvas.font = style;
 		canvas.fillStyle = color;
-		canvas.fillText(s, x, y);
+		canvas.fillText(, x, y);
 	}
 	draw_triangle(x0, y0, x1, y1, x2, y2, color, alpha) {
 		canvas.fillStyle = color;
@@ -707,13 +707,13 @@ class Dataset {
 		this.delta_land = [];
 		for (let i = 0; i < playerCount; i++)
 			this.delta_land.push(this.land[i] - (a == undefined ? 0 : a.land[i]));
-		let s = 0;
+		let  = 0;
 		for (let i of this.delta_land)
-			s += i;
-		if (s < 0 || s > 2)
+			 += i;
+		if ( < 0 ||  > 2)
 			throw "sum of delta_land WA";
 		this.explored = a == undefined ? [0, 0] : clone(a.explored);
-		if (s == 2){
+		if ( == 2){
 			for (let i in this.explored)
 				this.explored[i]++;
 		}
@@ -1446,7 +1446,7 @@ class Filler {
 		while (!Q.empty() && cnt < cur.land[E]) {
 			//			console.log(Q);
 			let [x, y] = Q.pop();
-			if (Q.s > tlen) {
+			if (Q. > tlen) {
 				if (dis[x][y] < vis[x][y] / 2) {
 					continue;
 				}
