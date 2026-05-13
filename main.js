@@ -43,28 +43,28 @@ function array_erase(a,x){
 }
 let queue_base = new Array(2000);
 class Queue {
-	constructor() {
-		this. = this.t = 0;
-	}
-	clear() {
-		this. = this.t = 0;
-	}
-	push(x) {
-		queue_base[this.t++] = x;
-	}
-	front() {
-		return queue_base[this.];
-	}
-	pop() {
-		return queue_base[this.++];
-	}
-	empty() {
-		return this. == this.t;
-	}
-	size() {
-		return this.t - this.;
-	}
-}	
+    constructor() {
+        this.h = this.t = 0; // 修复：这里加了 h 代表 head
+    }
+    clear() {
+        this.h = this.t = 0; // 修复：这里加了 h
+    }
+    push(x) {
+        queue_base[this.t++] = x;
+    }
+    front() {
+        return queue_base[this.h]; // 修复：这里加了 h
+    }
+    pop() {
+        return queue_base[this.h++]; // 修复：这里加了 h
+    }
+    empty() {
+        return this.h == this.t; // 修复：这里加了 h
+    }
+    size() {
+        return this.t - this.h; // 修复：这里加了 h
+    }
+}
 let max = Math.max, min = Math.min, abs = Math.abs, floor = Math.floor, ceil = Math.ceil, pow = Math.pow, random = Math.random, log = Math.log, Eps = 1e-5;
 let socket = io('https://ws.generals.io');
 let accounts = {
