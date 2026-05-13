@@ -68,9 +68,9 @@ class Queue {
 let max = Math.max, min = Math.min, abs = Math.abs, floor = Math.floor, ceil = Math.ceil, pow = Math.pow, random = Math.random, log = Math.log, Eps = 1e-5;
 let socket = io('https://ws.generals.io');
 let accounts = {
-	bot: ['asudhfiou','nimasabibc'],
+	bot: ['userid', 'chenzi'],
 };
-let [user_id, myusername] = ['userid', 'chenzi'], custom_game_id = 'jsahuaehx', user_idANDkey = [user_id, 'sd09fjdZ03i0ejwi_changeme'];
+let [user_id, myusername] = accounts.bot, custom_game_id = 'jsahuaehx', user_idANDkey = [user_id, 'sd09fjdZ03i0ejwi_changeme'];
 let chat_room, replay_url;
 let keep_playing = true, isconnected = false, game_end = true;
 let stepdelta = [[0, 1], [0, -1], [1, 0], [-1, 0]];
